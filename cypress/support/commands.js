@@ -25,7 +25,6 @@
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
 
-
  Cypress.Commands.add('login', (email, password) => { 
     cy.contains("Log in").click ()
     if(email)
