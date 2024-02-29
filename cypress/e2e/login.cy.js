@@ -11,5 +11,4 @@ describe('template spec', () => {
     cy.login ("bropet@mail.ru","123")
     cy.contains ("Добро пожаловать bropet@mail.ru").should ("be.visible")
   })
-
 })

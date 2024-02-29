@@ -1,5 +1,3 @@
-const {login} = require("./login.cy")
-
 describe('Book list', () => {
   beforeEach ( () =>{
     cy.visit ('/')
@@ -16,23 +14,23 @@ describe('Book list', () => {
 describe('Dowload book', () => {
 
   it('Dowload book', () => {
-    cy.get("Колобок").click()
+    cy.contains("Колобок").click()
     cy.get('.col-md-7 > .btn').click()
     cy.contains ("Dowload book").should ("be.visible")
   })
-  })
+})
 
 describe ('Favorites', () => {
 
-  it ("add favorite book", () => {
-    cy.get('[href="book/d45f8554-b195-40e7-af1e-eb8de547928b"] > .h-100 > .card-footer > .btn').click()
+  it("add favorite book", () => {
+    cy.contains("Add to favorite").click()
     cy.contains ("Мойдодыр").should ("be.visible")
-    })
+  })
 
   it ("delete favorite book", () => {
-    cy.get('h4').click ()
-    cy.get('.card-footer > .btn').click()
-
+  
+    cy.contains("Delete from favorite").click()
+    cy.contains ("Мойдодыр").should ("be.visible")
   })
 })
 })
