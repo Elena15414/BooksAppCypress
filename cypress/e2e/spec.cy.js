@@ -24,13 +24,17 @@ describe ('Favorites', () => {
 
   it("add favorite book", () => {
     cy.contains("Add to favorite").click()
-    cy.contains ("Мойдодыр").should ("be.visible")
+    cy.get('h4').click()
+    cy.contains("Delete from favorite").should("be.visible")
   })
 
   it ("delete favorite book", () => {
-  
+    
+    cy.get('h4').click()
+    cy.contains("Delete from favorite").should("be.visible")
     cy.contains("Delete from favorite").click()
-    cy.contains ("Мойдодыр").should ("be.visible")
+    cy.get('.text-light > .ml-2').click()
+    cy.contains("Add to favorite").should ("be.visible")
   })
 })
 })
